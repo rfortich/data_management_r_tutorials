@@ -1,2 +1,2 @@
-# data_management_r_tutorials
-Tutoriales de Data Management en R
+# Test your data management skills in R by solving practical challenges interactively
+These data management tutorials in R were developed with the [learnr package](https://rstudio.github.io/learnr/)
