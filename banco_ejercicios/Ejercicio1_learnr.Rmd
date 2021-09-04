@@ -1,0 +1,57 @@
+---
+title: "Ejercicio 1"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(learnr)
+learnr::tutorial_options(exercise.timelimit = 35)
+opts_chunk$set(echo = FALSE)
+dir <-  "C:\\Users\\elfor\\Dropbox\\Proyectos\\GestorDeDatosR\\BancoEjercicios"
+knitr::opts_knit$set(root.dir = 
+                       file.path(dir,"1. Bases de datos para importar","1. Blanco - Novato"))
+```
+
+# Importar datos al nivel de cinturon blanco (novato)
+
+Este ejercicio busca servir de practica para la habilidad de importar correctamente bases de datos a R, que es uno de los componentes principales de una buena gestion de datos. Se usara el comando mas generico posible, que es `read.table`
+
+```{r, include=FALSE}
+datos <- data.frame(ciudad=c("Bogota","Madrid","Ottawa"),
+                    pais=c("Colombia","España","Canada"),
+                    nacionalidad=c("Colombiano","Español","Canadiense"),
+                    puntaje_x=c(1.2,4.5,6.1))
+
+write.table(datos,
+            file="Ejercicio1.csv",
+            sep=",",
+            row.names = FALSE,
+            quote=FALSE)
+```
+
+Primero, mostraremos la base de datos de juguete:
+
+![](images/Ejercicio1.PNG)
+
+
+Esta base fue almacenada en el directorio de trabajo con el nombre \'Ejercicio1.csv\'.
+
+
+```{r read001, echo=FALSE}
+question("Escriba el comando que importa la anterior base de datos y almacenelo en un data frame llamado datos_ciudades:",
+         answer("datos_ciudades <- read.table('Ejercicio1.csv', sep=',', header=TRUE)",correct=TRUE),
+         answer("datos_ciudades <- read.table('Ejercicio1.csv', sep=';',header=TRUE)"),
+         answer("datos_ciudades <- import('Ejercicio1.csv'), sep=',',header=TRUE"),
+         answer("datos_ciudades <- abracadabra('Ejercicio1.csv')"),
+         answer("Ninguna de las anteriores")
+)
+
+```
+
+
+```{r read001-solution,echo=FALSE}
+datos_ciudades <- read.table("Ejercicio1.csv", sep=",", header=TRUE)
+```
+
